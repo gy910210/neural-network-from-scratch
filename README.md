@@ -14,7 +14,7 @@ np.random.seed(0)
 X, y = sklearn.datasets.make_moons(200, noise=0.20)
 plt.scatter(X[:,0], X[:,1], s=40, c=y, cmap=plt.cm.Spectral)
 ```
-
+![](https://github.com/pangolulu/neural-network-from-scratch/raw/master/figures/nn-from-scratch-dataset.png)
 The dataset we generated has two classes, plotted as red and blue points. Our goal is to train a Machine Learning classifier that predicts the correct class given the x- and y- coordinates. Note that the data is not linearly separable, we can’t draw a straight line that separates the two classes. This means that linear classifiers, such as Logistic Regression, won’t be able to fit the data unless you hand-engineer non-linear features (such as polynomials) that work well for the given dataset.
 
 In fact, that’s one of the major advantages of Neural Networks. You don’t need to worry about feature engineering. The hidden layer of a neural network will learn features for you.
@@ -35,7 +35,7 @@ The key of gradient descent method is how to calculate the gradient of loss func
 
 ### Implementation
 We start by given the computation graph of neural network.
-
+![](https://github.com/pangolulu/neural-network-from-scratch/raw/master/figures/computation-graph.png)
 In the computation graph, you can see that it contains three components (`gate`, `layer` and `output`), there is two kinds of gate (`multiply` and `add`), and you can use `tanh` layer and `softmax` output.
 
 `gate`, `layer` and `output` can all be seen as operation unit of computation graph, so they will implement the inner derivatives of their inputs (we call it `backward`), and use chain rule according to the computation graph.
@@ -211,6 +211,7 @@ plot_decision_boundary(lambda x: model.predict(x), X, y)
 plt.title("Decision Boundary for hidden layer size 3")
 plt.show()
 ```
+![](https://github.com/pangolulu/neural-network-from-scratch/raw/master/figures/nn-from-scratch-h3.png)
 This looks pretty good. Our neural networks was able to find a decision boundary that successfully separates the classes.
 
 The `plot_decision_boundary` function is referenced by <http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch>.
@@ -240,6 +241,7 @@ def plot_decision_boundary(pred_func, X, y):
 4. Extend the network from two to three classes. You will need to generate an appropriate dataset for this.
 5. Try some other Parameter updates method, like `Momentum update`, `Nesterov momentum`, `Adagrad`, `RMSprop` and `Adam`([more info](http://cs231n.github.io/neural-networks-3/#update)).
 6. Some other tricks of training neural network can be find <http://cs231n.github.io/neural-networks-2> and <http://cs231n.github.io/neural-networks-3>, like `dropout reglarization`, `batch normazation`, `Gradient checks` and `Model Ensembles`.
+
 ## Some useful resources
 <http://cs231n.github.io/>
 <http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch>
