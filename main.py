@@ -3,7 +3,7 @@ import numpy as np
 import sklearn
 import sklearn.datasets
 import sklearn.linear_model
-import layersnn
+import mlnn
 from utils import plot_decision_boundary
 
 # Generate a dataset and plot it
@@ -14,7 +14,7 @@ plt.show()
 
 layers_dim = [2, 3, 2]
 
-model = layersnn.Model(layers_dim)
+model = mlnn.Model(layers_dim)
 model.train(X, y, num_passes=20000, epsilon=0.01, reg_lambda=0.01, print_loss=True)
 
 # Plot the decision boundary
