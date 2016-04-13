@@ -42,7 +42,7 @@ In the computation graph, you can see that it contains three components (`gate`,
 
 `gate`, `layer` and `output` can all be seen as operation unit of computation graph, so they will implement the inner derivatives of their inputs (we call it `backward`), and use chain rule according to the computation graph.
 
-`gate.py`
+**`gate.py`**
 ```python
 import numpy as np
 
@@ -65,7 +65,7 @@ class AddGate:
         return db, dX
 ```
 
-`layer.py`
+**`layer.py`**
 ```python
 import numpy as np
 
@@ -85,7 +85,7 @@ class Tanh:
         output = self.forward(X)
         return (1.0 - np.square(output)) * top_diff
 ```
-`output.py`
+**`output.py`**
 ```python
 import numpy as np
 
@@ -246,6 +246,6 @@ def plot_decision_boundary(pred_func, X, y):
 6. Some other tricks of training neural network can be find <http://cs231n.github.io/neural-networks-2> and <http://cs231n.github.io/neural-networks-3>, like `dropout reglarization`, `batch normazation`, `Gradient checks` and `Model Ensembles`.
 
 ## Some useful resources
-<http://cs231n.github.io/>
-<http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch>
-<http://colah.github.io/posts/2015-08-Backprop/>
+1. <http://cs231n.github.io/>
+2. <http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch>
+3. <http://colah.github.io/posts/2015-08-Backprop/>
