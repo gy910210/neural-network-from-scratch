@@ -40,7 +40,8 @@ We start by given the computation graph of neural network.
 
 In the computation graph, you can see that it contains three components (`gate`, `layer` and `output`), there is two kinds of gate (`multiply` and `add`), and you can use `tanh` layer and `softmax` output.
 
-`gate`, `layer` and `output` can all be seen as operation unit of computation graph, so they will implement the inner derivatives of their inputs (we call it `backward`), and use chain rule according to the computation graph.
+`gate`, `layer` and `output` can all be seen as operation unit of computation graph, so they will implement the inner derivatives of their inputs (we call it `backward`), and use chain rule according to the computation graph. You can see the following figure for nice explanation.
+![](https://github.com/pangolulu/neural-network-from-scratch/raw/master/figures/bp.png)
 
 **`gate.py`**
 ```python
